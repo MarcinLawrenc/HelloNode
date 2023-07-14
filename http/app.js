@@ -1,9 +1,14 @@
 const http = require('http')
-const port = 6000
+const port = 8000
 
-const server = http.createServer()
+const handler = (request, response) => {
+    console.log('new user!')
+    response.end('Hello Node')
+}
 
-server.listen(port, () => {
+const server = http.createServer(handler)
 
+server.listen(port, (err) => {
+    if (err) {'something f*cked up'}
     console.log('server is running...')
 })
