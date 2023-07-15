@@ -1,14 +1,19 @@
-const http = require('http')
+const express = require('express')
 const port = 8000
 
-const handler = (request, response) => {
-    console.log('new user!')
-    response.end('Hello Node')
-}
+const app = express()
+app.set('view engine', 'hbs')
 
-const server = http.createServer(handler)
-
-server.listen(port, (err) => {
-    if (err) {'something f*cked up'}
-    console.log('server is running...')
+app.get('/', (req, res) =>{
+    res.render('index', {
+        pageTitle: 'Node js',
+        pageBody: 'hello node'
+    })
 })
+
+app.get('/kontakt', (req, res) =>{
+    res.send('Info FB PPBIT')
+})
+
+
+app.listen(port)
