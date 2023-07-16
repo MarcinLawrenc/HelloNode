@@ -7,7 +7,7 @@ app.set('view engine', 'hbs')
 app.get('/', (req, res) =>{
     res.render('index', {
         pageTitle: 'Node js',
-        pageBody: 'hello node'
+        pageBody: 'hello node js'
     })
 })
 
